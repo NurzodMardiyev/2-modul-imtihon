@@ -1,0 +1,182 @@
+#header {
+  background-image: url(../images/bg.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+.navbar {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-top: 56px;
+}
+.logo {
+  z-index: 9999;
+  width: 256px;
+
+  img {
+    width: 100%;
+  }
+}
+.nav_menu {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.menu {
+  display: flex;
+  gap: 24px;
+
+  a {
+    padding: 16px;
+    @include text(#fcfcfc, " Work Sans", 18px, 500, 130%);
+
+    &:hover {
+      color: rgb(196, 196, 196);
+    }
+  }
+}
+.contact__icon {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.head__info {
+  h1 {
+    max-width: 579px;
+    @include text(#fff, "Work Sans", 56px, 700, 120%);
+    padding: 183px 0 322px;
+    letter-spacing: 1.12px;
+  }
+}
+
+.lesson__box {
+  display: flex;
+  max-width: 1242px;
+  height: 280px;
+  margin-top: -140px;
+  justify-content: center;
+  background-image: url(../images/box_bg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  padding: 0;
+  border-radius: 15px;
+  .overlay {
+    display: flex;
+    flex-direction: column;
+    background-color: #ab0433b9;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    padding: 32px;
+    border-radius: 15px;
+  }
+  h2 {
+    @include text(#fff, "Work Sans", 46px, 700, 120%);
+  }
+  p {
+    @include text(#fff, "Work Sans", 24px, 600, 149%);
+
+    max-width: 616px;
+    text-align: center;
+  }
+  button {
+    padding: 8px 16px;
+    background-color: #ff753a;
+    border-radius: 32px;
+    border: none;
+    color: #fff;
+    margin-top: 24px;
+    @include text(#fff, "Work Sans", 14px, 600, 149%);
+  }
+}
+#burger {
+  visibility: hidden;
+}
+#menuBurger {
+  display: none;
+  cursor: pointer;
+  width: 24px;
+  z-index: 9999;
+}
+@media screen and (max-width: 1024px) {
+  #menuBurger {
+    display: flex;
+  }
+  .navbar {
+    justify-content: space-between;
+  }
+  .nav_menu {
+    display: none;
+    opacity: 0;
+    flex-direction: column;
+    position: absolute;
+    justify-content: center;
+    text-align: center;
+    height: 100vh;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.514);
+    top: 0;
+    left: 0;
+    width: 100%;
+    gap: 20px;
+    transform: translateY(-100%);
+    transition: all 0.6 ease;
+    z-index: 99;
+    ul {
+      flex-direction: column;
+    }
+
+    & > div {
+      flex-direction: column;
+    }
+  }
+
+  #burger:checked ~ .nav_menu {
+    display: flex;
+    transform: translateY(0);
+    opacity: 1;
+  }
+  .lesson__box {
+    max-width: 894px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .logo {
+    width: 153px;
+
+    img {
+      width: 100%;
+    }
+  }
+  .head__info {
+    h1 {
+      max-width: 80%;
+      margin: auto;
+      @include text(#fff, "Work Sans", 32px, 700, 120%);
+      padding: 100px 0 195px;
+      letter-spacing: 1.12px;
+      text-align: center;
+    }
+  }
+  .lesson__box {
+    max-width: 328px;
+    height: 168px;
+    margin-top: -84px;
+    h2 {
+      @include text(#fff, "Work Sans", 21px, 700, 120%);
+    }
+    p {
+      @include text(#fff, "Work Sans", 10px, 500, 140%);
+      margin-top: 10px;
+    }
+    button {
+      padding: 9px 12px;
+      margin-top: 16px;
+      @include text(#fff, "Work Sans", 12px, 600, 149%);
+    }
+  }
+}
